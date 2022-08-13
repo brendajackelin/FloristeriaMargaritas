@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Proyecto.Views.PProceso"
+             NavigationPage.HasNavigationBar="False">
+    <Grid RowDefinitions="70,*">
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="1,0">
+                <GradientStop Color="#F3BF42" Offset="0.1"/>
+                <GradientStop Color="#FFF4DB" Offset="1.0"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+
+
+        <StackLayout Grid.Row="0" Orientation="Horizontal">
+
+            <Image Source="back.png"
+                     BackgroundColor="Transparent"
+                     HorizontalOptions="Start"
+                     Margin="10,40,0,0"/>
+
+            <StackLayout.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding Volvercomamd}"/>
+            </StackLayout.GestureRecognizers>
+
+        </StackLayout>
+        <Label 
+               Text="PEDIDOS EN PROCESO"
+                FontAttributes="Bold"
+                FontSize="18"
+               TextColor="Black"
+                Margin="60,30,0,0"
+               VerticalOptions="Center"/>
+
+        <Frame Grid.Row="1"
+               CornerRadius="20"
+               Margin="15,0,15,0"
+               HasShadow="False"
+               >
+
+
+
+            <CollectionView ItemsSource="{Binding ListasUbicaciones}"
+                            x:Name="Listasolicitudes">
+
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout Orientation="Vertical"
+                                     Span="1"
+                                     VerticalItemSpacing="20"/>
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="{Binding IdUbicaciones}"
+                                       VerticalOptions="Center"/>
+                                <Button Text="Asignar"
+                                        CornerRadius="15"
+                                        FontAttributes="Bold"
+                                        Command="{Binding Source={x:Reference Listasolicitudes}
+                                        ,Path=BindingContext.NavegarAsignacionescomamd}"
+                                        CommandParameter="{Binding .}"/>
+                            </StackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+        </Frame>
+
+    </Grid>
+
+</ContentPage>

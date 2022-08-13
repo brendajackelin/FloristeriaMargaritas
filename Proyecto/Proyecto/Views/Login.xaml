@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Proyecto.Views.Login"
+             BackgroundImageSource="@drawable/login.png"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <StackLayout>
+
+            
+            
+            <Label 
+                Text="INICIAR SESIÓN"
+                FontAttributes="Bold"
+                FontSize="20"
+                Margin="0,200,0,0"
+                HorizontalOptions="CenterAndExpand"/>
+
+            <Label 
+                Text="Correo:"
+                Margin="30,5,0,0" />
+
+            <Entry
+                x:Name="txtCorreo"
+                Margin="30,0,30,0"
+                Placeholder="ejemplo@ejemplo.com"
+                FontAttributes="Italic"
+                Keyboard="Email"/>
+
+            
+
+
+            <StackLayout Orientation="Horizontal" >
+               <Label 
+                Text="Contraseña:"
+                Margin="30,5,0,0" 
+                   HorizontalOptions="Start"/>
+                
+                <CheckBox
+                    x:Name="checkBox"
+                    CheckedChanged="OnCheckBoxCheckedChanged"
+                    Margin="100,5,0,0" />
+
+                <Label 
+                    Text="Mostrar contraseña"
+                    Margin="-5,10,10,0" 
+                    x:Name="ver"  />
+
+            </StackLayout>
+            
+           <Entry
+                x:Name="txtPass"
+                FontAttributes="Italic"
+                Margin="30,-15,30,0"
+                MaxLength="15"
+                IsPassword="True"/>
+
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                <Switch
+                    x:Name="SaveUser"
+                    Margin="5,0,-5,0"/>
+
+                <Label 
+                Text="Recuérdame"
+                Margin="-5,13,0,0" />
+
+                <Button
+                x:Name="btnPass"
+                Text="¿Olvidaste la contraseña?"
+                BackgroundColor="White"
+                Margin="5,0,0,0"
+                FontSize="12"
+                FontAttributes="Bold"
+                TextColor="#F3BF42"
+                CornerRadius="20"
+                Clicked="btnPass_Clicked"/>
+
+            </StackLayout>
+
+            <Button
+                x:Name="btnIniciar"
+                Text="Acceder"
+                BackgroundColor="#F3BF42"
+                Margin="0,20,0,0"
+                CornerRadius="20"
+                HorizontalOptions="CenterAndExpand"
+                Clicked="btnIniciar_Clicked"/>
+
+            <Label 
+                Text="¿No tienes una cuenta?"
+                Margin="0,20,0,0"
+                HorizontalOptions="CenterAndExpand"/>
+
+            <Button
+                x:Name="btnRegistrar"
+                Text="Crear cuenta"
+                BackgroundColor="Transparent"
+                FontSize="15"
+                FontAttributes="Bold"
+                TextColor="#F3BF42"
+                CornerRadius="20"
+                HorizontalOptions="CenterAndExpand"
+                Clicked="btnRegistrar_Clicked"/>
+
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

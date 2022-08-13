@@ -1,0 +1,180 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Proyecto.Views.Pedido2"
+             NavigationPage.HasNavigationBar="False">
+    <Grid RowDefinitions="70,*">
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="1,0">
+                <GradientStop Color="#F3BF42" Offset="0.1"/>
+                <GradientStop Color="#FFF4DB" Offset="1.0"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+
+
+
+        <StackLayout Grid.Row="0" Orientation="Horizontal">
+            <Image Source ="back.png"
+                     BackgroundColor="Transparent"
+                     HorizontalOptions="Start"
+                     Margin="10,40,0,0"/>
+            
+            <StackLayout.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding Volvercomamd}"/>
+            </StackLayout.GestureRecognizers>
+
+        </StackLayout>
+        <Label 
+                   Text="Nuevo Pedido"
+                    FontAttributes="Bold"
+                    FontSize="18"
+                   TextColor="Black"
+                    Margin="60,30,0,0"
+                   VerticalOptions="Center"/>
+
+        <ScrollView Grid.Row="1">
+            <Grid ColumnDefinitions="*,*"
+                  RowDefinitions="350,350,auto"
+                  Margin="20"
+               >
+                <Frame CornerRadius="15"
+                       HasShadow="False"
+                       Grid.Row="0"
+                       Grid.Column="0"
+                       >
+                    <StackLayout VerticalOptions="Center" Margin="0,-40,0,0" >
+                        <Image Source="One.png"/>
+                        <Label Text="La Fleur"
+                               FontSize="20"
+                               FontAttributes="Bold"
+                               TextColor="#F3BF42"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"
+                               />
+                        <Label Text="Flowers Box + Chocoltes"
+                               HorizontalTextAlignment="Center"
+                               FontSize="13"
+                               FontAttributes="Italic"
+                               TextColor="Black"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"
+                               />
+                        <Label Text="Precio: L. 500.00"
+                               FontSize="15"
+                               TextColor="Black"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"
+                               />
+                    </StackLayout>
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding NavegarRecolectoresconfigcomamd}"/>
+                    </Frame.GestureRecognizers>
+                </Frame>
+                <Frame CornerRadius="15"
+                       HasShadow="False"
+                       Grid.Row="0"
+                       Grid.Column="1">
+                    <StackLayout VerticalOptions="Center" Margin="0,-40,0,0">
+                        <Image Source="Two.png"/>
+                        <Label Text="Amour"
+                               FontSize="20"
+                               FontAttributes="Bold"
+                               TextColor="#F3BF42"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"
+                               />
+                        <Label Text="Flowers Box + Chocolates + Peluche"
+                               HorizontalTextAlignment="Center"
+                               FontSize="13"
+                               FontAttributes="Italic"
+                               TextColor="Black"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"
+                               />
+                        <Label Text="Precio: L. 750.00"
+                               HorizontalTextAlignment="Center"
+                               FontSize="15"
+                               TextColor="Black"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"
+                               />
+                    </StackLayout>
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding NavegarProductosconfigcomamd}"/>
+                    </Frame.GestureRecognizers>
+                </Frame>
+
+                <Frame CornerRadius="15"
+                       HasShadow="False"
+                       Grid.Row="1"
+                       Grid.Column="0"
+                      >
+                    <StackLayout VerticalOptions="Center" Margin="0,-40,0,0">
+                        <Image Source="Three.png"/>
+                        <Label Text="VRose"
+                               FontSize="20"
+                               FontAttributes="Bold"
+                               TextColor="#F3BF42"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"
+                               />
+                        <Label Text="12 Rosas"
+                               FontSize="13"
+                               HorizontalTextAlignment="Center"
+                               FontAttributes="Italic"
+                               TextColor="Black"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"
+                               />
+                        <Label Text="Precio: L. 350.00"
+                               FontSize="15"
+                               HorizontalTextAlignment="Center"
+                               TextColor="Black"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"
+                               />
+                    </StackLayout>
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding NavegarProductosconfigcomamd}"/>
+                    </Frame.GestureRecognizers>
+                </Frame>
+
+                <Frame CornerRadius="15"
+                       HasShadow="False"
+                       Grid.Row="1"
+                       Grid.Column="1"
+                      >
+                    <StackLayout VerticalOptions="Center" Margin="0,-40,0,0">
+                        <Image Source="Four.png"/>
+                        <Label Text="GARDEN"
+                               FontSize="20"
+                               FontAttributes="Bold"
+                               TextColor="#F3BF42"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"
+                               />
+                        <Label Text="Margaritas + Peluche"
+                               HorizontalTextAlignment="Center"
+                               FontSize="13"
+                               FontAttributes="Italic"
+                               TextColor="Black"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"
+                               />
+                        <Label Text="Precio: L. 480.00"
+                               HorizontalTextAlignment="Center"
+                               FontSize="15"
+                               TextColor="Black"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"
+                               />
+                    </StackLayout>
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding NavegarProductosconfigcomamd}"/>
+                    </Frame.GestureRecognizers>
+                </Frame>
+
+            </Grid>
+        </ScrollView>
+    </Grid>
+</ContentPage>

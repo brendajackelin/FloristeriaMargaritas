@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Proyecto.Views.Pedido"
+             NavigationPage.HasNavigationBar="False">
+    <Grid RowDefinitions="70,*">
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="1,0">
+                <GradientStop Color="#F3BF42" Offset="0.1"/>
+                <GradientStop Color="#FFF4DB" Offset="1.0"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+
+
+
+        <StackLayout Grid.Row="0" Orientation="Horizontal">
+            <Image Source ="back.png"
+                     BackgroundColor="Transparent"
+                     HorizontalOptions="Start"
+                     Margin="10,40,0,0"/>
+            
+            <StackLayout.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding Volvercomamd}"/>
+            </StackLayout.GestureRecognizers>
+
+        </StackLayout>
+        <Label 
+                   Text="Nuevo Pedido"
+                    FontAttributes="Bold"
+                    FontSize="18"
+                   TextColor="Black"
+                    Margin="60,30,0,0"
+                   VerticalOptions="Center"/>
+
+        <CollectionView x:Name="cvListaProductos" 
+                        ItemsSource="{Binding oListaProductos}" 
+                        SelectionMode="Single" 
+                        VerticalScrollBarVisibility="Never" 
+                        SelectionChanged="CvListaProductos_SelectionChanged">
+            <CollectionView.ItemsLayout>
+                <GridItemsLayout Orientation="Vertical" Span="2" VerticalItemSpacing="6" HorizontalItemSpacing="6" />
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    
+                        <Frame CornerRadius="15"
+                           HasShadow="False"
+                           Grid.Row="0"
+                           Grid.Column="0"
+                           >
+                        <Grid Margin="0" Padding="0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="160"/>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                            </Grid.RowDefinitions>
+                            
+                                
+                                <StackLayout Grid.Row="1">
+                                <Label Text="{Binding nombre}" LineBreakMode="NoWrap"
+                                       FontSize="20"
+                                       FontAttributes="Bold"
+                                       TextColor="#F3BF42"
+                                       HorizontalOptions="Center"
+                                       VerticalOptions="Center"/>
+                                </StackLayout>
+                                <StackLayout Grid.Row="2">
+                                <Label Text="{Binding precio, StringFormat='L. {0}'}"
+                                       FontSize="15"
+                                       TextColor="Black"
+                                       HorizontalOptions="Center"
+                                       VerticalOptions="Center"/>
+                            </StackLayout>
+                        </Grid>
+                    </Frame>
+                    
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>
+</ContentPage>

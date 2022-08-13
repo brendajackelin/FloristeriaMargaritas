@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Proyecto.Views.RecuperarPass"
+             BackgroundImageSource="@drawable/Pass.png"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <StackLayout>
+
+            <Label 
+                Text="RESTABLECER CONTRASEÑA"
+                FontAttributes="Bold"
+                FontSize="20"
+                Margin="0,250,0,0"
+                HorizontalOptions="CenterAndExpand"/>
+
+
+            <Label 
+                Text="Por favor, proporciona tu dirección de correo que usaste al registrar tu cuenta."
+                Margin="40,20,20,0" />
+
+            <Label 
+                Text="Te enviaremos un correo que te permitirá reinicializar tu contraseña."
+                Margin="40,0,20,0" />
+
+            <Label 
+                Text="Email:"
+                Margin="45,10,0,0"
+                FontSize="15"
+                FontAttributes="Bold"/>
+
+            <Entry
+                x:Name="txtCorreo"
+                Margin="30,0,30,0"
+                Placeholder="ejemplo@ejemplo.com"
+                FontAttributes="Italic"
+                Keyboard="Email"/>
+
+            <Button
+                x:Name="btnPass"
+                Text="Enviar email de verificación"
+                BackgroundColor="#F3BF42"
+                Margin="0,30,0,0"
+                CornerRadius="20"
+                HorizontalOptions="CenterAndExpand"
+                Clicked="btnPass_Clicked"/>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

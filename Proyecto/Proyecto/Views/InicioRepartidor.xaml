@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Proyecto.Views.InicioRepartidor"
+             xmlns:degradado="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             NavigationPage.HasNavigationBar="False">
+
+    <Grid RowDefinitions="300,0,40,*"
+          BackgroundColor="#E9EDF3">
+
+        <degradado:PancakeView BackgroundColor="White"
+                               CornerRadius="0,0,30,30">
+
+            <Frame Margin="15,30,15,30"
+                   CornerRadius="15"
+                   HasShadow="False">
+
+
+
+                <Frame.Background>
+                    <LinearGradientBrush EndPoint="1,0">
+                        <GradientStop Color="#A6A6A6" Offset="0.1"/>
+                        <GradientStop Color="#FFF4DB" Offset="1.0"/>
+                    </LinearGradientBrush>
+                </Frame.Background>
+                <StackLayout >
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand">
+                        <Label Text="Cerrar Sesión"
+                       x:Name="cerrar"
+                       FontSize="15"
+                       FontAttributes="Bold"
+                       HorizontalOptions="End"
+                       Margin="0,-5,0,0"/>
+
+                        <ImageButton Source="exit.png"
+                            HeightRequest="40"
+                            WidthRequest ="30"
+                            Margin="0,-15,0,0"
+                            BackgroundColor="Transparent"
+                            HorizontalOptions="Start"/>
+
+                    </StackLayout>
+                    <Label Text="¡Bienvenido Yesman!"
+                           x:Name="bienvenido"
+                           FontSize="25"
+                           FontAttributes="Bold"
+                           HorizontalOptions="Start"
+                           Margin="0,-10,0,0"/>
+                    <Grid ColumnDefinitions="*,*">
+                        <StackLayout VerticalOptions="Center" >
+                            <Label Text="REPARTIDOR"
+                                  x:Name="correo"
+                                       FontSize="15"
+                                       CharacterSpacing="2"
+                                       VerticalOptions="Center"
+                                       Margin="0,-40,0,10"/>
+                            <StackLayout Orientation="Horizontal">
+
+                                <Button Text="Mi Perfil"
+                                        BackgroundColor="#F3BF42"
+                                        CornerRadius="15"
+                                        FontAttributes="Bold"
+                                        TextColor="White"
+                                        FontSize="20"
+                                        Margin="0,10,0,0"/>
+
+                            </StackLayout>
+
+                        </StackLayout >
+                        <Image Grid.Column="1" 
+                               Margin="0,5,20,0"
+                               Source="@drawable/logo.png"/>
+                    </Grid>
+                </StackLayout>
+
+            </Frame>
+        </degradado:PancakeView>
+        
+        <StackLayout Grid.Row="2" Orientation="Horizontal">
+            <Label 
+               Text="Todos los pedidos"
+                FontAttributes="Bold"
+                FontSize="18"
+               TextColor="Black"
+                Margin="16,0,0,0"
+               VerticalOptions="Center"/>
+
+            <Image Source="@drawable/Icon.png"
+               HeightRequest="35"
+               />
+        </StackLayout>
+        <Frame Grid.Row="3"
+               CornerRadius="20"
+               Margin="15,0,15,0"
+               HasShadow="False"
+               >
+
+            <CollectionView ItemsSource="{Binding ListasPedidos}"
+                            x:Name="Listasolicitudes">
+
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout Orientation="Vertical"
+                                     Span="1"
+                                     VerticalItemSpacing="20"/>
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="{Binding IdPedidos}"
+                                       VerticalOptions="Center"/>
+                                <Button Text="Asignar"
+                                        CornerRadius="15"
+                                        FontAttributes="Bold"
+                                        Command="{Binding Source={x:Reference Listasolicitudes}
+                                        ,Path=BindingContext.NavegarAsignacionescomamd}"
+                                        CommandParameter="{Binding .}"/>
+                            </StackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+        </Frame>
+    </Grid>
+</ContentPage>
